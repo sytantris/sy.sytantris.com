@@ -1,0 +1,471 @@
+@import 'mixins';
+@import 'lib/media';
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  height: 100%;
+  background: {
+    image: url(background-main.jpg);
+    size: cover;
+    position: fixed;
+  }
+  font-family: Existence;
+  color: $colorLilac;
+
+  @include respond-to-max(768px) {
+    background-position: 50%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $colorPink;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: lighten($colorPink, 20%);
+    transition: 0.3s ease-in-out;
+  }
+}
+
+header {
+  width: 100%;
+  background-color: $colorPurpleDark;
+  opacity: 0.8;
+  border-bottom: 2px outset $colorGray;
+  box-shadow: 3px 3px 7px darken($colorPurpleDark, 10%);
+  display: flex;
+  flex-flow: row wrap;
+
+  > * {
+    flex: 1 100%;
+  }
+
+  h1 {
+    display: block;
+    width: 100%;
+    padding: 15px 15px 5px;
+    color: $colorBlue;
+
+    @include respond-to-max(980px) {
+      font-size: 40px;
+    }
+
+    @include respond-to-min(980px) {
+      font-size: 40px;
+      font-size: 4vw;
+    }
+  }
+
+  div {
+    min-width: 400px;
+    flex: 1 auto;
+    h2 {
+      font-size: 24px;
+      text-align: right;
+      width: 400px;
+      color: $colorGray;
+      margin-bottom: 20px;
+
+      @include respond-to-max(400px) {
+        padding-right: 20px;
+      }
+    }
+  }
+
+  nav {
+    flex: 9 auto;
+    text-align: center;
+
+    ul {
+      text-align: center;
+      padding: 0;
+      li {
+        display: inline-block;
+        text-align: center;
+        margin: 0 0 20px;
+        padding: 0 20px;
+        border-right: 1px solid $colorBlue;
+        letter-spacing: 2px;
+
+        &:last-of-type {
+          border-right: none;
+        }
+
+        @include respond-to-max(480px) {
+          font-size: 34px;
+        }
+
+        @include respond-to-interval(480px, 640px) {
+          font-size: 20px;
+          font-size: 4vw;
+        }
+
+        @include respond-to-interval(640px, 980px) {
+          font-size: 20px;
+          font-size: 2.5vw;
+        }
+
+        @include respond-to-min(980px) {
+          font-size: 20px;
+          font-size: 1.7vw;
+        }
+      }
+    }
+  }
+}
+
+div.content {
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  overflow: scroll;
+
+  background-color: $colorPurpleDarkTransparent;
+  border: 3px outset $colorGray;
+  border-left-width: 2px;
+  border-top-width: 2px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px darken($colorPurpleDark, 10%);
+
+  font: {
+    family: Exo;
+    size: 12px;
+  }
+  line-height: 18px;
+  letter-spacing: 1px;
+
+  @include respond-to-min(480px) {
+    max-height: 65vh;
+  }
+
+  > div {
+    text-align: center;
+    width: 30%;
+
+    &.left {
+      float: left;
+    }
+
+    &.right {
+      float: right;
+    }
+
+    @include respond-to-max(640px) {
+      width: 100%;
+      float: none;
+      margin-bottom: 30px;
+    }
+
+    @include respond-to-interval(640px, 980px) {
+      width: 40%;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: $colorBlue;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      border: 1px solid $colorPink;
+      border-radius: 10px;
+
+      &#sy-main {
+        margin-bottom: 20px;
+      }
+
+      &.icon {
+        width: 15%;
+        height: auto;
+        border: none;
+        border-radius: 50%;
+        margin-right: 5px;
+
+        &:hover {
+          background: $colorBlue;
+        }
+      }
+    }
+  }
+
+  article {
+    width: 70%;
+    float: left;
+
+    @include respond-to-max(640px) {
+      width: 100%;
+      float: none;
+    }
+
+    @include respond-to-interval(640px, 980px) {
+      width: 60%;
+    }
+
+    &.left {
+      padding-right: 20px;
+
+      h1, p {
+        text-align: right;
+      }
+    }
+
+    &.right {
+      padding-left: 20px;
+
+      h1 {
+        text-align: left;
+      }
+    }
+
+    &#portfolio {
+      > div {
+        border: 1px solid $colorPink;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        padding: 10px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        ul {
+          li {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+
+    &#resume {
+      li {
+        list-style-type: disc;
+      }
+
+      > div {
+        margin-bottom: 50px;
+        border: 1px solid $colorPink;
+        border-radius: 10px;
+        padding: 10px;
+
+        &#pdf {
+          display: none;
+          border: 1px solid $colorBlue;
+          h2 {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+        }
+
+        &#objective {
+          p {
+            margin-bottom: 0;
+          }
+
+          ul {
+            color: $colorPink;
+          }
+        }
+
+        &#qualifications {
+          ul {
+            font-size: 1.4rem;
+          }
+        }
+
+        &#skills {
+          overflow: auto;
+
+          p {
+            margin-left: 0;
+            margin-bottom: 0;
+          }
+
+          div.legend {
+            @include respond-to-interval(980px, 1200px) {
+              float: left;
+              width: 40%;
+            }
+
+            @include respond-to-min(1200px) {
+              float: left;
+              width: 30%;
+            }
+          }
+
+          ul {
+            @include respond-to-interval(980px, 1200px) {
+              float: left;
+              width: 60%;
+            }
+
+            @include respond-to-min(1200px) {
+              float: left;
+              width: 70%;
+            }
+
+            li {
+              list-style-type: none;
+              display: inline-block;
+              margin-left: 0;
+              margin-right: 10px;
+              margin-bottom: 10px;
+              border: 1px solid $colorPink;
+              border-radius: 5px;
+              padding: 5px;
+
+              &:hover {
+                background-color: $colorPurpleDark;
+              }
+            }
+          }
+
+          span.stars {
+            color: $colorPink;
+          }
+        }
+
+        &#education, &#employment {
+          p {
+            margin-bottom: 0;
+
+            &.title {
+              font-size: 1.6rem;
+            }
+          }
+
+          ul {
+            margin-bottom: 20px;
+            color: $colorPink;
+          }
+        }
+
+        &#employment {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &#contact {
+
+      #form-messages {
+        div {
+          border-radius: 5px;
+          margin-bottom: 20px;
+          padding: 10px;
+          display: none;
+        }
+
+        #form-success {
+          background-color: $colorPink;
+          color: $colorPurpleDark;
+          border: 1px solid $colorLilac;
+        }
+
+        #form-error {
+          background-color: $colorBlue;
+          color: $colorPurpleDark;
+          border: 1px solid $colorLilac;
+        }
+      }
+
+      form {
+        > div {
+          margin: 10px 0 0;
+          width: 480px;
+
+          #contact-name, #contact-email {
+            width: 100%;
+            margin-bottom: 20px;
+            background-color: $colorLilac;
+            border-radius: 5px 0 5px 0;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1.4rem;
+            padding: 5px;
+            &::-webkit-input-placeholder { color: $colorPurpleDark; }
+            &:-moz-placeholder { color: $colorPurpleDark; }
+            &::-moz-placeholder { color: $colorPurpleDark; }
+            &:-ms-input-placeholder { color: $colorPurpleDark; }
+          }
+        }
+
+        textarea {
+          display: block;
+          width: 480px;
+          margin: 0 0 20px;
+          background-color: $colorLilac;
+          border-radius: 5px 0 5px 0;
+          font-family: inherit;
+          font-weight: bold;
+          font-size: 1.4rem;
+          padding: 5px;
+          &::-webkit-input-placeholder { color: $colorPurpleDark; }
+          &:-moz-placeholder { color: $colorPurpleDark; }
+          &::-moz-placeholder { color: $colorPurpleDark; }
+          &:-ms-input-placeholder { color: $colorPurpleDark; }
+        }
+
+        > div {
+
+          div {
+            display: inline-block;
+            float: left;
+          }
+
+          a#contact-submit {
+            float: right;
+            font-size: 2rem;
+            vertical-align: top;
+            border: 1px solid $colorPink;
+            border-radius: 5px;
+            padding: 5px;
+
+            &:hover {
+              background-color: $colorPurpleDarkTransparent;
+            }
+          }
+
+          br {
+            clear: both;
+          }
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      border-bottom: 1px solid $colorPink;
+      text-align: center;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      line-height: 1.5;
+    }
+
+    ul {
+      li {
+        margin-left: 20px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
