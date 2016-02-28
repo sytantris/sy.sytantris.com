@@ -15,7 +15,7 @@
     <!-- @reload -->
 
     <!-- @stylesheet reset style -->
-    <!-- @javascript jquery-2.1.4.min app contact -->
+    <!-- @javascript jquery-2.1.4.min app contact imagelightbox -->
 
     <link href='<!-- @path favicon.png -->' rel='shortcut icon'>
     <link href='<!-- @path apple-touch-icon.png -->' rel='apple-touch-icon'>
@@ -23,6 +23,11 @@
     <title>Sytantris Dyat</title>
 
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+      $(function() {
+          $('a.imagelightbox').imageLightbox();
+      });
+    </script>
   </head>
 
   <body>

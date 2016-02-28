@@ -37,6 +37,17 @@ a {
   }
 }
 
+#imagelightbox {
+  position: fixed;
+  z-index: 9999;
+  background-color: $colorLilac;
+  border: 1px solid $colorLilac;
+  border-radius: 10px;
+ 
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
 header {
   width: 100%;
   background-color: $colorPurpleDark;
@@ -154,10 +165,18 @@ div.content {
 
     &.left {
       float: left;
+
+      @include respond-to-max(600px) {
+        float: none;
+      }
     }
 
     &.right {
       float: right;
+
+      @include respond-to-max(600px) {
+        float: none;
+      }
     }
 
     @include respond-to-max(640px) {
@@ -220,6 +239,10 @@ div.content {
       h1, p {
         text-align: right;
       }
+
+      @include respond-to-max(640px) {
+        padding-right: 0;
+      }
     }
 
     &.right {
@@ -227,6 +250,10 @@ div.content {
 
       h1 {
         text-align: left;
+      }
+
+      @include respond-to-max(640px) {
+        padding-left: 0;
       }
     }
 
@@ -244,6 +271,7 @@ div.content {
         ul {
           li {
             font-size: 1.4rem;
+            list-style-type: disc;
           }
         }
       }
@@ -361,6 +389,10 @@ div.content {
 
     &#contact {
 
+      > p {
+        text-align: left;
+      }
+
       #form-messages {
         div {
           border-radius: 5px;
@@ -386,6 +418,7 @@ div.content {
         > div {
           margin: 10px 0 0;
           width: 480px;
+          max-width: 480px;
 
           #contact-name, #contact-email {
             width: 100%;
@@ -400,6 +433,14 @@ div.content {
             &:-moz-placeholder { color: $colorPurpleDark; }
             &::-moz-placeholder { color: $colorPurpleDark; }
             &:-ms-input-placeholder { color: $colorPurpleDark; }
+          }
+
+          @include respond-to-max(640px) {
+            width: 100%;
+          }
+
+          @include respond-to-interval(640px, 980px) {
+            width: 100%;
           }
         }
 
@@ -417,6 +458,14 @@ div.content {
           &:-moz-placeholder { color: $colorPurpleDark; }
           &::-moz-placeholder { color: $colorPurpleDark; }
           &:-ms-input-placeholder { color: $colorPurpleDark; }
+
+          @include respond-to-max(640px) {
+            width: 100%;
+          }
+
+          @include respond-to-interval(640px, 980px) {
+            width: 100%;
+          }
         }
 
         > div {
@@ -424,6 +473,14 @@ div.content {
           div {
             display: inline-block;
             float: left;
+
+            @include respond-to-max(980px) {
+              &.g-recaptcha {
+                width: 100%;
+                overflow-y: scroll;
+                margin-bottom: 20px;
+              }
+            }
           }
 
           a#contact-submit {
