@@ -88,7 +88,7 @@ header {
       margin-bottom: 20px;
 
       @include respond-to-max(400px) {
-        padding-right: 20px;
+        padding-right: 40px;
       }
     }
   }
@@ -113,7 +113,7 @@ header {
         }
 
         @include respond-to-max(480px) {
-          font-size: 34px;
+          font-size: 24px;
         }
 
         @include respond-to-interval(480px, 640px) {
