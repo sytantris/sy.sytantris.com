@@ -78,7 +78,6 @@ header {
   }
 
   div {
-    min-width: 400px;
     flex: 1 auto;
     h2 {
       font-size: 24px;
@@ -88,7 +87,7 @@ header {
       margin-bottom: 20px;
 
       @include respond-to-max(480px) {
-        padding-right: 40px;
+        padding-right: 10px;
       }
     }
   }
