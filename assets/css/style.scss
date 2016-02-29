@@ -83,11 +83,11 @@ header {
     h2 {
       font-size: 24px;
       text-align: right;
-      width: 400px;
+      width: 100%;
       color: $colorGray;
       margin-bottom: 20px;
 
-      @include respond-to-max(400px) {
+      @include respond-to-max(480px) {
         padding-right: 40px;
       }
     }
@@ -114,6 +114,7 @@ header {
 
         @include respond-to-max(480px) {
           font-size: 24px;
+          padding: 0 10px;
         }
 
         @include respond-to-interval(480px, 640px) {
